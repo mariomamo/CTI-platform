@@ -1,0 +1,27 @@
+.proposal-container {
+    padding: 15px;
+}
+
+.back-arrow-container {
+    padding: 20px;
+    color: darkgray;
+    font-size: large;
+    display: inline-block;
+}
+
+.back-arrow:hover {
+    cursor: pointer;
+}
+
+.vote-progressbar {
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    font-size:20px;
+}
+
+.proposal-overview-token-amount {
+    display: inline-block;
+    font-weight: bold;
+    font-size: large;
+}

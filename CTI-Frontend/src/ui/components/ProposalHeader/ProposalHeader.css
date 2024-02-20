@@ -1,0 +1,13 @@
+.proposal-header {
+    padding-bottom: 20px;
+}
+
+.proposal-id {
+    color: darkgray;
+    font-weight: bold;
+    display: inline-block;
+    padding-right: 10px;
+    &.loading-skeleton {
+        width: 300px;
+    }
+}

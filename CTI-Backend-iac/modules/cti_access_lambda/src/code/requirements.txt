@@ -1,0 +1,7 @@
+aws-lambda-powertools==2.26.0
+eth-account==0.10.0
+web3==6.11.1
+jmespath==1.0.1
+pymongo==4.6.0
+kafka-python==2.0.2
+PyJWT==2.8.0

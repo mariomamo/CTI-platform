@@ -1,0 +1,89 @@
+{
+  "Comment": "Step function for authentication using blockchain method",
+  "StartAt": "BlockchainLoginState",
+  "States": {
+    "BlockchainLoginState": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::apigateway:invoke",
+      "Parameters": {
+        "ApiEndpoint": "${Api-id}.execute-api.${Region}.amazonaws.com",
+        "Method": "POST",
+        "Stage": "default",
+        "Path": "/blockchain/verify-signature",
+        "RequestBody": {
+          "address.$": "$.address",
+          "signature.$": "$.signature"
+        },
+        "AuthType": "IAM_ROLE"
+      },
+      "Next": "BlockchainLoginResultChoiceState",
+      "ResultPath": "$.response"
+    },
+    "BlockchainLoginResultChoiceState": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "And": [
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "IsPresent": true
+            },
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "IsString": true
+            },
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "StringEquals": "Succeeded"
+            }
+          ],
+          "Next": "GetJwtState"
+        },
+        {
+          "And": [
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "IsPresent": true
+            },
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "IsString": true
+            },
+            {
+              "Variable": "$.response.ResponseBody.result",
+              "StringEquals": "Failed"
+            }
+          ],
+          "Next": "LoginErrorState"
+        }
+      ],
+      "Default": "DefaultErrorState"
+    },
+    "GetJwtState": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::apigateway:invoke",
+      "Parameters": {
+        "ApiEndpoint": "${Api-id}.execute-api.${Region}.amazonaws.com",
+        "Method": "POST",
+        "Stage": "default",
+        "Path": "/auth/generate-jwt",
+        "RequestBody": {
+          "id.$": "$.address"
+        },
+        "AuthType": "IAM_ROLE"
+      },
+      "End": true,
+      "OutputPath": "$.ResponseBody"
+    },
+    "LoginErrorState": {
+      "Type": "Fail",
+      "Comment": "Login Failed",
+      "ErrorPath": "$.response.ResponseBody.error"
+    },
+    "DefaultErrorState": {
+      "Type": "Fail",
+      "Error": "NoChoiceMatch",
+      "Cause": "There wasn't a choice match!"
+    }
+  }
+}

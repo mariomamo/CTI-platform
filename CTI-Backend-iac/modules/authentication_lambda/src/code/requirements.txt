@@ -1,0 +1,5 @@
+aws-lambda-powertools==2.26.0
+PyJWT==2.8.0
+cryptography==41.0.4
+jmespath==1.0.1
+pymongo==4.6.0

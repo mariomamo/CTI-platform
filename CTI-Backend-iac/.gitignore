@@ -1,0 +1,16 @@
+/.idea/
+/environments/testenv/cti-access-lambda-archive.zip
+/environments/testenv/authentication-blockchain-lambda-archive.zip
+/environments/testenv/authentication-blockchain-lambda-dependencies-archive.zip
+/environments/testenv/authentication-lambda-archive.zip
+/environments/testenv/authentication-lambda-dependencies-archive.zip
+/environments/testenv/authentication-lambda-keys-archive.zip
+/environments/testenv/access-lambda-abi-archive.zip
+/environments/testenv/access-lambda-dependencies-archive.zip
+/environments/testenv/cti-access-lambda-dependencies-archive.zip
+/environments/testenv/.terraform/
+/modules/authentication_blockchain_lambda/src/dependencies/
+/modules/authentication_lambda/src/dependencies/
+/modules/cti_access_lambda/src/dependencies/
+/modules/cti_events_store_lambda/src/dependencies/
+/modules/cti_poll_ender_scheduled_lambda/src/dependencies/

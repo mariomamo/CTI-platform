@@ -1,0 +1,28 @@
+.status-badge {
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    width: auto;
+    border-radius: 20px;
+    &.loading-skeleton {
+        width: 75px;
+        margin-left: 30px;
+    }
+}
+
+.status-badge.pending {
+    border: solid 2px #FFFF8F;
+    background-color: #FFFF8F;
+    color: #FFAA33;
+}
+
+.status-badge.passed {
+    border: solid 2px #d9efda;
+    background-color: #d9efda;
+    color: #77a380;
+}
+
+.status-badge.rejected {
+    border: solid 2px #f9d7dd;
+    background-color: #f9d7dd;
+    color: #d83f74;
+}

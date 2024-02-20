@@ -1,0 +1,321 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_ctiOracle",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_ctiTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_allowerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_regularSubscriptionAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_regularSubscriptionDurationInDays",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_plusSubscriptionAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_plusSubcriptionAmountInDays",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum ICtiUsers.SubscriptionTierEnum",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "name": "subscriptionsInfo",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "subscriptionCost",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "subscriptionDurationInDays",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "users",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "endSubscription",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isRegistered",
+        "type": "bool"
+      },
+      {
+        "internalType": "enum ICtiUsers.SubscriptionTierEnum",
+        "name": "tier",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "publishedCti",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "validCti",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "invalidCti",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "memberSince",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_addressToRegister",
+        "type": "address"
+      },
+      {
+        "internalType": "enum ICtiUsers.SubscriptionTierEnum",
+        "name": "_tier",
+        "type": "uint8"
+      }
+    ],
+    "name": "register",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getUserInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "endSubscription",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isRegistered",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum ICtiUsers.SubscriptionTierEnum",
+            "name": "tier",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "publishedCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "validCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "invalidCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "memberSince",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ICtiUsers.UserInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getUserInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "endSubscription",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isRegistered",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum ICtiUsers.SubscriptionTierEnum",
+            "name": "tier",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "publishedCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "validCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "invalidCti",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "memberSince",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ICtiUsers.UserInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "isSubscriptionActive",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "isSubscriptionActive",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "addAllowedContract",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "result",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "internalType": "enum Enums.VotingResultEnum",
+        "name": "_votingResult",
+        "type": "uint8"
+      }
+    ],
+    "name": "updateUserStats",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "result",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

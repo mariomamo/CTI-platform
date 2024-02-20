@@ -1,0 +1,17 @@
+.upgrade-tier-container {
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(-45deg, #f403d1, #64b5f6);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.upgrade-tier-container-go-to-pricing:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.upgrade-tier-container-go-to-pricing {
+    display: inline-block;
+}

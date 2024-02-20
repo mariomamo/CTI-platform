@@ -1,0 +1,71 @@
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.my-button {
+    position: relative;
+    z-index: 0;
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    -webkit-tap-highlight-color: transparent;
+    /*padding: 2rem;*/
+}
+
+.my-button::before {
+     content: '';
+     position: absolute;
+     z-index: -2;
+     left: -50%;
+     top: -50%;
+     width: 200%;
+     height: 200%;
+     background-color: var(--primary-color);
+     background-repeat: no-repeat;
+     background-size: 50% 50%, 50% 50%;
+     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+     /*background-image: linear-gradient(#92b7f8, #92b7f8);*/
+     /*background-image: conic-gradient(*/
+     /*        #ff0052 90deg,*/
+     /*        transparent 120deg*/
+     /*   );*/
+     /*animation: rotate 3s linear infinite;*/
+}
+
+
+.my-button::after {
+     content: '';
+     position: absolute;
+     z-index: -1;
+     left: 6px;
+     top: 6px;
+     width: calc(100% - 12px);
+     height: calc(100% - 12px);
+     background: var(--primary-color);
+     border-radius: 5px;
+}
+
+.my-button:hover {
+     cursor: pointer;
+}
+
+
+.active::before {
+    background-image: linear-gradient(var(--secondary-color), var(--secondary-color));
+    animation: rotate 3s linear infinite;
+}
+
+.active:hover {
+    cursor: auto;
+}
